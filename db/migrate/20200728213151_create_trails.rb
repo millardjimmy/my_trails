@@ -5,7 +5,7 @@ class CreateTrails < ActiveRecord::Migration[6.0]
       t.string :city 
       t.string :length
       t.string :skill_level
-      t.text_area :description
+      t.text :description
       t.belongs_to :user, foriegn_key: true
 
       t.timestamps

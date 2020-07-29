@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+
   resources :comments
   resources :trails
   resources :users
