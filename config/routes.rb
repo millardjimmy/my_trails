@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   get '/login', to: 'sessions#new'
-  post '/signup', to: 'sessions#create'
+  post '/login', to: 'sessions#create'
 
   resources :comments
   resources :trails
