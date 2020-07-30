@@ -10,6 +10,9 @@ class TrailsController < ApplicationController
         @trail = current_user.trails.build(trail_params)
         redirect_to trail_path(@trail)
     end 
+    def show 
+        @trail = Trail.find(params[:id])
+    end 
 
     private
     def trail_params
