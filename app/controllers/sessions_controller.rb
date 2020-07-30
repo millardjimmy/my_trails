@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to trails_path
         else 
-            flash[:message] = "invalid username or password. please try again."
-            redirect_to '/signin'
+            flash[:alert] = "invalid username or password. please try again."
+            redirect_to '/login'
         end 
     end 
 
