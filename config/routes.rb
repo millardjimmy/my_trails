@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
-  get '/createtrail', to: 'trails#new'
-  post '/createtrail', to: 'trails#create'
+  get '/create', to: 'trails#new'
+  post '/create', to: 'trails#create'
+
+  get '/:id/edit', to: "trails#edit"
+  patch '/:id', to: "trails#update"
 
   resources :comments
   resources :trails
