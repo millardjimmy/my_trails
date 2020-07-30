@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
+  get '/createtrail', to: 'trails#new'
+  post '/createtrail', to: 'trails#create'
+
   resources :comments
   resources :trails
   resources :users
