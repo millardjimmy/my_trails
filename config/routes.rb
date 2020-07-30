@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#home'
+
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
@@ -8,11 +9,13 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
-  get '/create', to: 'trails#new'
-  post '/create', to: 'trails#create'
+  get '/new', to: 'trails#new'
+  post '/new', to: 'trails#create'
 
   get '/:id/edit', to: "trails#edit"
   patch '/:id', to: "trails#update"
+
+  get '/trails/trail.id', to: "trails#show"
 
   resources :comments
   resources :trails

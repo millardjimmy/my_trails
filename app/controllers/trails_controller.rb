@@ -7,12 +7,10 @@ class TrailsController < ApplicationController
         @trail = Trail.new
     end 
     def create 
-        @trail = current_user.trails.build(trail_params)
-        redirect_to trail_path(@trail)
+        trail = current_user.trails.build(trail_params)
+        redirect_to 'trails/trail.id'
     end 
-    def show 
-        @trail = Trail.find(params[:id])
-    end 
+ 
     def edit 
         @trail = Trail.find(params[:id])
     end 

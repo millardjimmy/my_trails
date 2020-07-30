@@ -1,6 +1,7 @@
 <div class="card w-50 mx-auto">
   <div class="card-header">
     <h2>Sign Up</h2>
+    <h4> Already have an account? <%= link_to('Log in', '/login', :class => "nav-link") %> </h4>
     <% @user.errors.full_messages.each do |msg| %>
       <div class="alert alert-danger">
         <%= msg %>
