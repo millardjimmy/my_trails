@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   get '/:id/edit', to: "trails#edit"
   patch '/:id', to: "trails#update"
 
-
-  resources :comments
+  resources :trail do 
+    resources :comments
+  end 
   resources :trails
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
