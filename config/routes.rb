@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get '/:id/edit', to: "trails#edit"
   patch '/:id', to: "trails#update"
 
-  get '/trails/trail.id', to: "trails#show"
 
   resources :comments
   resources :trails
