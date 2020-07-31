@@ -20,11 +20,16 @@ class TrailsController < ApplicationController
     end 
     def update
         trail = Trail.find(params[:id])
-        trail.update(trails_params)
-        redirect_to tail_path(trail)
+        trail.update(trail_params)
+        redirect_to trail_path(trail)
     end 
     def show 
         @trail = Trail.find_by(id: params[:id])
+    end 
+    def destroy
+        trail = Trail.find(params[:id])
+        trail.destroy
+        redirect_to trails_path
     end 
 
     private
