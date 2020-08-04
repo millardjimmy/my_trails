@@ -1,6 +1,11 @@
-<h3><%=link_to @comment.trail.name, trail_path(@trail) %></h3>
-<h2></h2>
+<%= link_to @comment.trail.name, trail_path(@trail) %>
+
 
 <p><i> <%= @comment.reply %></i></p>
 <p> - Posted By <%= @comment.user.username %>
+
+<% if @comment.user == current_user %>
+<%= link_to "Edit", edit_trail_comment_path(@comment) %>
+<%= link_to "Delete Comment", trail_comment_path(@comment), method: 'delete' %>
+<%end %>
 

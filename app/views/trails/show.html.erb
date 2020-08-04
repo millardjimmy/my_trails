@@ -3,6 +3,14 @@
 <h4>Length:</h4> <%= @trail.length %><br>
 <h4>Skill Level: </h4> <%= @trail.skill_level %><br>
 <h4>Description: </h4><%= @trail.description %><br>
+<div>
+<h4> Comments: </h4>
+<% @trail.comments.all.each do |c| %>
+    <%= link_to c.user.username, trail_comment_path(c)%> said 
+    <%=c.reply %><br>
+    <br>
+<%end %>
+</div>
 <%= link_to 'Edit Trail', edit_trail_path(@trail) %>
 <%= link_to 'Delete Trail', trail_path(@trail), method: 'delete' %>
 <%= link_to 'Add a new comment', new_trail_comment_path(@trail) %>
