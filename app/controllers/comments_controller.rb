@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_trail, only: [:new, :create, :edit, :update, :destroy]
+    before_action :set_comment, only: [:show, :update, :edit, :destroy]
+    before_action :set_trail, only: [:new, :show, :create, :edit, :update, :destroy]
+    
     def index
         @comments = Comment.all
     end 
@@ -10,7 +12,6 @@ class CommentsController < ApplicationController
         end
     end
     def create
-        @trail = Trail.find_by_id(params[:trail_id])
         @comment = current_user.comments.build(comment_params)
         if @comment.save
             redirect_to trail_comment_path(@trail, @comment)
@@ -19,7 +20,6 @@ class CommentsController < ApplicationController
         end
     end
     def show
-        @comment = Comment.find_by(params[:id])
     end 
     def edit
     end 
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
             render :edit
         end 
     end 
-    def destroy 
+    def destroy
         @comment.destroy
         redirect_to trail_path(@trail)
     end 
@@ -42,4 +42,8 @@ class CommentsController < ApplicationController
     def set_trail
         @trail = Trail.find_by(id: params[:trail_id])
     end 
+    def set_comment
+        @comment = Comment.find_by(id: params[:id])
+    end
+
 end
