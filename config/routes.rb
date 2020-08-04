@@ -9,13 +9,14 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
-  get '/new', to: 'trails#new'
-  post '/new', to: 'trails#create'
+  
 
   get '/:id/edit', to: "trails#edit"
   patch '/:id', to: "trails#update"
 
-  resources :trail do 
+  get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
+
+  resources :trails do 
     resources :comments
   end 
   resources :trails

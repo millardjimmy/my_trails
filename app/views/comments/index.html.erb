@@ -1,0 +1,7 @@
+<h1> All comments </h1><br>
+<h2></h2>
+<% @comments.each do |c| %>
+    <h3> Trail: <%= c.attraction.name %></h3>
+    <p> Posted by <%= c.user.username %></p><br>
+    <p> <%= c.reply %></p>
+<% end %>
