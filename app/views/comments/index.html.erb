@@ -1,7 +1,6 @@
-<h1> All comments </h1><br>
-<h2></h2>
+<h1> All comments for <%= link_to @trail.name, trail_path(@trail) %></h1><br>
+
 <% @comments.each do |c| %>
-    <h3> Trail: <%= c.attraction.name %></h3>
-    <p> Posted by <%= c.user.username %></p><br>
+    <p> Posted by <%= link_to c.user.username, trail_comment_path(@trail, c) %></p><br>
     <p> <%= c.reply %></p>
 <% end %>

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
 
   resources :trails do 
-    resources :comments, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :comments
   end 
   resources :trails
   resources :users

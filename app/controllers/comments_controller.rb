@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_comment, only: [:show, :update, :edit, :destroy]
-    before_action :set_trail, only: [:new, :show, :create, :edit, :update, :destroy]
+    before_action :set_comment
+    before_action :set_trail
     
     def index
         @comments = Comment.all

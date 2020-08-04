@@ -1,6 +1,6 @@
-<%= form_for [@trail, @comment] do |f| %>
+<%= form_for ([@trail, @comment]) do |f| %>
 
-    <%= f.label :reply, "New comment"%>:
+    <%= f.label :reply, "Comment:"%>
     <br>
     <%= f.text_area :reply %>
     <br>
