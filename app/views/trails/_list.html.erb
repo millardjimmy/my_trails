@@ -1,0 +1,7 @@
+<% @trails.each do |t| %>
+    <%= link_to t.name, trail_path(t) %><br>
+    <%= t.city %><br>
+    <%= t.length %><br>
+    <%= t.skill_level %><br>
+    <%= t.description %><br><hr>
+<%end%>

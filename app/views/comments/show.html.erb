@@ -5,7 +5,7 @@
 <p> - Posted By <%= @comment.user.username %>
 
 <% if @comment.user == current_user %>
-<%= link_to "Edit", edit_trail_comment_path(@comment) %>
-<%= link_to "Delete Comment", trail_comment_path(@comment), method: 'delete' %>
+<%= link_to "Edit", edit_trail_comment_path(@trail, @comment) %>
+<%= link_to "Delete Comment", trail_comment_path(@trail, @comment), method: 'delete' %>
 <%end %>
 

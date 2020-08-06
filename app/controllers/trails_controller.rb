@@ -23,15 +23,24 @@ class TrailsController < ApplicationController
         trail = Trail.find(params[:id])
         trail.update(trail_params)
         redirect_to trail_path(trail)
-    end 
+    end
+    def most_popular
+        @trail = Trail.most_pop
+    end  
     def show 
         @trail = Trail.find_by(id: params[:id])
     end 
+
+    
     def destroy
         trail = Trail.find(params[:id])
         trail.destroy
         redirect_to trails_path
     end 
+
+    #SCOPE METHOD 
+
+    
 
     private
     def trail_params
