@@ -1,7 +1,11 @@
 class TrailsController < ApplicationController
-    #before_action :redirect_if_not_logged_in
+    before_action :redirect_if_not_logged_in
     def index
-        @trails = Trail.all
+        if params[:search] == nil || params[:search] == ''
+            @trails = Trail.all
+        else 
+            @trails = Trail.search(params)
+        end 
     end 
     def new 
         @trail = Trail.new
