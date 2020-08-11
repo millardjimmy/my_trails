@@ -1,11 +1,5 @@
-<h2><%= @trail.name %></h2>
-<h4>City:</h4> <%= @trail.city %><br>
-<h4>Length:</h4> <%= @trail.length %><br>
-<h4>Skill Level: </h4> <%= @trail.skill_level %><br>
-<h4>Description: </h4><%= @trail.description %><br>
+<%= render 'shared/nav' %>
+<%= render 'list' %>
 <div>
 <h4> Comments: </h4>
 <h4> <%=link_to "view all comments", trail_comments_path(@trail) %>
-<%= link_to 'Edit Trail', edit_trail_path(@trail) %>
-<%= link_to 'Delete Trail', trail_path(@trail), method: 'delete' %>
-<%= link_to 'Add a new comment', new_trail_comment_path(@trail) %>
