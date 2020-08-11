@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'welcome#home'
-  get '/trails/most_popular', to: 'trails#most_popular'
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -19,8 +18,7 @@ Rails.application.routes.draw do
   patch '/trails/:trail_id/comments/:id(.:format)', to: "comments#update"
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
-  
-  
+
 
   resources :trails do 
     resources :comments, only: [:index, :new, :create, :show, :edit, :update, :destroy]
