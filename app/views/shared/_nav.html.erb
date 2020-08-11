@@ -1,0 +1,20 @@
+<nav id="navbar-primary" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-primary-collapse">
+      <ul class="nav navbar-nav">
+        
+      <%= link_to 'Add a new comment', new_trail_comment_path(@trail) %>
+      <%= link_to 'Home', trails_path %>
+      <%= link_to 'Edit Trail', edit_trail_path(@trail) %>
+      <%= link_to 'Delete Trail', trail_path(@trail), method: 'delete' %>
+      
+<hr>
+
+      
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
