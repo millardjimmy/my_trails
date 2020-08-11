@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
     before_action :set_comment
     before_action :set_trail
+    before_action :redirect_if_not_comment_author, only: [:edit, :update, :destroy]
+
     
     def index
         @comments = Comment.all
@@ -45,5 +47,10 @@ class CommentsController < ApplicationController
     def set_comment
         @comment = Comment.find_by(id: params[:id])
     end
+    def redirect_if_not_comment_author
+        flash[:error] = "You can only edit your own trail."
+        redirect_to trails_path if @comment.trail.user == current_user
+    end
+    
 
 end
