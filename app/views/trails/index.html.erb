@@ -1,11 +1,16 @@
-<h1> Welcome to Every Trail! </h1>
+<%= link_to image_tag("logo.PNG"), trails_path %>
 <h3> Click on a trail to explore! or <%= link_to "Log out", logout_url %> </h3>
 <h4> Know a trail we dont? <%= link_to "Create a trail!", new_trail_path(@trail) %> </h4>
+<%= form_tag(trails_path, method: :get) do %>
+    <%= label_tag :search %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "submit"%>
+<% end %><hr>
 <% @trails.each do |t| %>
     <%= link_to t.name, trail_path(t) %><br>
     <%= t.city %><br>
     <%= t.length %><br>
     <%= t.skill_level %><br>
-    <%= t.description %><br><hr>
+    <%= t.description %><br> <hr width=200>
 <%end%>
 
