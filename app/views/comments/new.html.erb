@@ -1,2 +1,4 @@
 <%= link_to @trail.name, trail_path(@trail) %>
+
+<%= render partial: "shared/error", locals: {object: @comment} %>
 <%= render 'form' %>
