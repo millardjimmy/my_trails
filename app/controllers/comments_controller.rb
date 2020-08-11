@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
     end
     def redirect_if_not_comment_author
         flash[:error] = "You can only edit your own trail."
-        redirect_to trails_path if @comment.trail.user == current_user
+        redirect_to trails_path if @comment.trail.user != current_user
     end
     
 
