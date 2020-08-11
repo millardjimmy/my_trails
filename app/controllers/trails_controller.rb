@@ -1,5 +1,7 @@
 class TrailsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_trail, only: [:edit, :update, :destroy, :show]
+    before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]
     def index
         if params[:search] == nil || params[:search] == ''
             @trails = Trail.all
@@ -19,36 +21,31 @@ class TrailsController < ApplicationController
         end 
     end 
  
-    def edit 
-        @trail = Trail.find(params[:id])
+    def edit
 
     end 
     def update
-        trail = Trail.find(params[:id])
-        trail.update(trail_params)
-        redirect_to trail_path(trail)
+        @trail.update(trail_params)
+        redirect_to trail_path(@trail)
     end
-    def most_popular
-        @trail = Trail.most_pop
-    end  
+ 
     def show 
-        @trail = Trail.find_by(id: params[:id])
     end 
 
     
     def destroy
-        trail = Trail.find(params[:id])
         trail.destroy
         redirect_to trails_path
-    end 
-
-    #SCOPE METHOD 
+    end
 
     
 
     private
     def trail_params
         params.require(:trail).permit(:name, :city, :length, :skill_level, :description)
+    end 
+    def set_trail
+        @trail = Trail.find(params[:id])
     end 
 
 end
