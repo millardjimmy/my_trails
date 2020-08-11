@@ -1,8 +1,4 @@
-<% @trail.errors.full_messages.each do |msg| %>
-    <div class="alert alert-danger">
-      <%= msg %>
-    </div>
-  <% end %>
+
 <%= form_for @trail do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
