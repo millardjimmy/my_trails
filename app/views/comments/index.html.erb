@@ -1,6 +1,10 @@
-<h1> All comments for <%= link_to @trail.name, trail_path(@trail) %></h1><br>
+<p><b> All comments for <%= link_to @trail.name, trail_path(@trail) %></b><p>
 
+<hr>
 <% @trail.comments.each do |c| %>
-    <p> Posted by <%= link_to c.user.username, trail_comment_path(@trail, c) %></p><br>
-    <p> <%= c.reply %></p><hr>
+    <h3><%= c.reply %></h3>
+    <p>Posted by <%= link_to c.user.username, trail_comment_path(@trail, c) %></p><hr width=200>
+    
 <% end %>
+
+<%= link_to 'home', trails_path %>
